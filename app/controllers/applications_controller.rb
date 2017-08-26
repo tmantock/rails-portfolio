@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-    before_action :set_application, only: [:show, :edit, :update]
+    before_action :set_application, only: [:show, :edit, :update, :destroy]
     # Index route
     def index
         # Get all of the applications
@@ -21,7 +21,7 @@ class ApplicationsController < ApplicationController
 
         respond_to do |format|
             if @application.save
-                format.html { redirect_to applications_path, notice: 'Your Application has been created.'}
+                format.html { redirect_to applications_path, notice: 'Your Application has been Created.'}
             else
                 format.html { render :new }
             end
@@ -35,10 +35,17 @@ class ApplicationsController < ApplicationController
     def update
         respond_to do |format|
             if @application.update(application_params)
-                format.html { redirect_to applications_path, notice: 'Your Application has been updated'}
+                format.html { redirect_to applications_path, notice: 'Your Application has been Updated.'}
             else
                 format.html { render :edit }
             end
+        end
+    end
+
+    def destroy
+        @application.destroy
+        respond_to do |format|
+            format.html { redirect_to applications_path, notice: "Your Application has been Deleted."}
         end
     end
 
