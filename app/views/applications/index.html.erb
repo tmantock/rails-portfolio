@@ -1,0 +1,9 @@
+<h1>Applications</h1>
+
+<% @applications.each do |app| %>
+    <div>
+        <%= image_tag app.thumbnail %>
+        <h3><%= app.title %></h3>
+        <h4><%= app.subtitle %></h4>
+    </div>
+<% end %>
