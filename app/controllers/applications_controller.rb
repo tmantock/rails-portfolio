@@ -1,8 +1,13 @@
 class ApplicationsController < ApplicationController
+    before_action :set_application, only: [:show, :edit, :update]
     # Index route
     def index
         # Get all of the applications
         @applications = Application.all
+    end
+
+    # Show Route
+    def show
     end
 
     # New Route for the Application form
@@ -23,7 +28,25 @@ class ApplicationsController < ApplicationController
         end
     end
 
+    # Edit Route
+    def edit
+    end
+
+    def update
+        respond_to do |format|
+            if @application.update(application_params)
+                format.html { redirect_to applications_path, notice: 'Your Application has been updated'}
+            else
+                format.html { render :edit }
+            end
+        end
+    end
+
     private
+        def set_application
+            @application = Application.find(params[:id])
+        end
+
         def application_params
             params.require(:application).permit(:title, :subtitle, :thumbnail, :image, :body)
         end

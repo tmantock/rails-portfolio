@@ -1,5 +1,7 @@
 <h1>Applications</h1>
 
+<p id="notice"><%= notice %></p>
+
 <% @applications.each do |app| %>
     <div>
         <%= image_tag app.thumbnail unless app.thumbnail.nil? %>
