@@ -2,7 +2,7 @@
 
 <% @applications.each do |app| %>
     <div>
-        <%= image_tag app.thumbnail %>
+        <%= image_tag app.thumbnail unless app.thumbnail.nil? %>
         <h3><%= app.title %></h3>
         <h4><%= app.subtitle %></h4>
     </div>
