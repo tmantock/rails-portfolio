@@ -1,1 +1,7 @@
-<h1><%= @application.title %></h1>
+<div>
+    <%= image_tag @application.image unless @application.image.nil? %>
+    <h1><%= @application.title %></h1>
+    <em><%= @application.subtitle %></em>
+    <p><%= @application.body %></p>
+    <%= link_to "Edit Application", edit_application_path(@application) %>
+</div>
