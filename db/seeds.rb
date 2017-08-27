@@ -54,3 +54,11 @@ end
 end
 
 puts "9 Applications created"
+
+["JavaScript", "Ruby", "Go"].each do |tech|
+    Application.last.technologies.create!(
+        name: tech,
+    )
+end
+
+puts "3 Technologies Created"

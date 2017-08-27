@@ -1,6 +1,8 @@
 class Application < ApplicationRecord
     include Placeholder
 
+    has_many :technologies
+
     validates_presence_of :title, :image, :thumbnail, :body
 
     def self.ember
