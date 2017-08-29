@@ -3,7 +3,7 @@ class ApplicationsController < ApplicationController
     # Index route
     def index
         # Get all of the applications
-        @applications = Application.ruby_on_rails
+        @applications = Application.all
     end
 
     # Show Route
@@ -13,6 +13,7 @@ class ApplicationsController < ApplicationController
     # New Route for the Application form
     def new
         @application = Application.new
+        3.times { @application.technologies.build }
     end
 
     # Create Method for creating a new Application
@@ -55,6 +56,6 @@ class ApplicationsController < ApplicationController
         end
 
         def application_params
-            params.require(:application).permit(:title, :subtitle, :thumbnail, :image, :body)
+            params.require(:application).permit(:title, :subtitle, :thumbnail, :image, :body, technologies_attributes: [:name])
         end
 end

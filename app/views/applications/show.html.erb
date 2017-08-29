@@ -5,4 +5,8 @@
     <p><%= @application.body %></p>
     <%= link_to "Edit Application", edit_application_path(@application) %>
     <%= link_to "Delete Application", @application, method: :delete, data: { confirm: "Are you sure" } %>
+    <h2>Tech Used</h2>
+    <% @application.technologies.each do |tech| %>
+    	<p> <%= tech.name %> </p>
+	<% end %>
 </div>
