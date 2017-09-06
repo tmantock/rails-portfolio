@@ -56,6 +56,13 @@ class ApplicationsController < ApplicationController
         end
 
         def application_params
-            params.require(:application).permit(:title, :subtitle, :thumbnail, :image, :body, technologies_attributes: [:name])
+            params.require(:application).permit(
+                :title,
+                :subtitle,
+                :thumbnail,
+                :image,
+                :body,
+                technologies_attributes: [:name]
+            )
         end
 end
