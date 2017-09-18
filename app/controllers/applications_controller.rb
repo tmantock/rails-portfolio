@@ -1,5 +1,7 @@
 class ApplicationsController < ApplicationController
     before_action :set_application, only: [:show, :edit, :update, :destroy]
+    layout "applications"
+
     # Index route
     def index
         # Get all of the applications
