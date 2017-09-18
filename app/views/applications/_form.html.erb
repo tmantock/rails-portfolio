@@ -1,0 +1,39 @@
+<%= form_with(model: application, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :application_title %>
+    </div>
+
+    <div class="field">
+        <%= form.label :subtitle %>
+        <%= form.text_field :subtitle, id: :application_title %>
+    </div>
+
+    <div class="field">
+        <%= form.label :thumbnail %>
+        <%= form.text_field :thumbnail, id: :application_thumbnail %>
+    </div>
+
+    <div class="field">
+        <%= form.label :image %>
+        <%= form.text_field :image, id: :application_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body, id: :application_body %>
+    </div>
+
+    <ul>
+      <%= form.fields_for :technologies do |tech| %>
+        <li>
+          <%= tech.label :name %>
+          <%= tech.text_field :name%>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

@@ -33,6 +33,7 @@ class ApplicationsController < ApplicationController
 
     # Edit Route
     def edit
+      3.times { @application.technologies.build }
     end
 
     def update
