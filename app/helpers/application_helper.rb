@@ -14,4 +14,8 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+
+  def copyright_generator
+    BarnesViewTool::Renderer.copyright("Tevin Mantock", "All Rights Reserved")
+  end
 end
