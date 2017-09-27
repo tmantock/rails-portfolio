@@ -2,6 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Create New Application", new_application_path %>
+<%= link_to "Create New Application", new_application_path if logged_in?(:site_admin) %>
 
 <%= render partial: 'app', collection: @applications %>

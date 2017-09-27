@@ -3,8 +3,8 @@
     <h1><%= @application.title %></h1>
     <em><%= @application.subtitle %></em>
     <p><%= @application.body %></p>
-    <%= link_to "Edit Application", edit_application_path(@application) %>
-    <%= link_to "Delete Application", @application, method: :delete, data: { confirm: "Are you sure" } %>
+    <%= link_to "Edit Application", edit_application_path(@application) if logged_in?(:site_admin)%>
+    <%= link_to "Delete Application", @application, method: :delete, data: { confirm: "Are you sure" } if logged_in?(:site_admin)%>
     <h2>Tech Used</h2>
     <% @application.technologies.each do |tech| %>
     	<p> <%= tech.name %> </p>

@@ -2,6 +2,7 @@ class ApplicationsController < ApplicationController
     before_action :set_application, only: [:show, :edit, :update, :destroy]
     layout "applications"
 
+    access all: [:show, :index], user: { except: [:new, :create, :update, :edit, :destroy] }, site_admin: :all
     # Index route
     def index
         # Get all of the applications

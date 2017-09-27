@@ -2,5 +2,5 @@
     <%= image_tag app.thumbnail unless app.thumbnail.nil? %>
     <h3><%= link_to app.title, application_show_path(app) %></h3>
     <h4><%= app.subtitle %></h4>
-    <%= link_to "Edit Application", edit_application_path(app) %>
+    <%= link_to "Edit Application", edit_application_path(app) if logged_in?(:site_admin) %>
 </div>
